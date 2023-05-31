@@ -1,11 +1,11 @@
 import React from "react";
-import { StyleSheet, View, Text, Button } from "react-native";
+import { StyleSheet, View, Text, Pressable } from "react-native";
 import { Foundation as FoundationIcons } from "react-native-vector-icons";
 //import DiceGame from "./src/components/DiceGame";//
 
 export default function HomeScreen({ navigation }) {
   const goToGameScreen = () => {
-    navigation.navigate("GameScreen");
+    navigation.navigate("Jouer");
   };
 
   return (
@@ -15,12 +15,14 @@ export default function HomeScreen({ navigation }) {
         <View style={styles.iconContainer}>
           <FoundationIcons name="die-six" color="black" size={80} />
         </View>
-        <Button
-          title="JOUER"
-          onPress={goToGameScreen}
-          color="purple"
-          size={50}
-        />
+        <Pressable
+          onPress={goToGameScreen}>
+             <Text style={styles.texte}> Lancer le jeux
+          </Text>
+          </Pressable>
+         
+          
+        
         <View style={styles.iconContainer}>
           <FoundationIcons name="die-six" color="black" size={80} />
         </View>
@@ -38,10 +40,17 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 60,
-    marginBottom: 150,
+    marginBottom: 180,
     color: "purple",
     textAlign: "center",
     fontWeight: "bold",
+  },
+
+  texte: {
+    color: "black",
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center",
   },
   buttonContainer: {
     flexDirection: "row",

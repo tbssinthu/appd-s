@@ -1,5 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
 import HomeScreen from "../screens/HomeScreen";
 import GameScreen from "../screens/GameScreen";
 import { Foundation as FoundationIcons } from "react-native-vector-icons";
@@ -13,7 +14,7 @@ const NavigationTabs = () => {
         name="HomeScreen"
         component={HomeScreen}
         options={{
-          tabBarLabe: "Accueil",
+          tabBarLabel: "Accueil",
           tabBarActiveTintColor: "#333",
           tabBarInactiveTintColor: "#888",
           tabBarIcon: ({ color, size }) => (
@@ -26,7 +27,7 @@ const NavigationTabs = () => {
         name="Jouer"
         component={GameScreen}
         options={{
-          tabBarLabe: "Jouer",
+          tabBarLabel: "Jouer",
           tabBarActiveTintColor: "#333",
           tabBarInactiveTintColor: "#888",
           tabBarIcon: ({ color, size }) => (

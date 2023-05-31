@@ -26,7 +26,7 @@ export default function GameScreen() {
       <Text style={styles.resultat}>Resultat {resultat}</Text>
       <View style={styles.secondContainer}>
         {/* reni */}
-        <View style={styles.buttonContainer}>
+        <View style={[styles.buttonContainer, { marginTop: 50,  width: 150}]}>
           <Button title="Réinitialiser" onPress={resetDes} color="purple" />
         </View>
 
@@ -34,8 +34,8 @@ export default function GameScreen() {
         <DiceGame des1={des1} des2={des2} />
         {/* btn lancer */}
 
-        <View style={styles.buttonContainer}>
-          <Button title="Lancer" onPress={lanceDes} color="purple" />
+        <View style={[styles.buttonContainer, { marginBottom : 50,  width: 150 }]}>
+          <Button title="Lancer" onPress={lanceDes} color="purple"  />
         </View>
       </View>
     </View>
@@ -49,30 +49,35 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "pink",
     padding: 20,
+    
   },
   buttonContainer: {
     borderRadius: 10,
     overflow: "hidden",
     marginBottom: 10,
+  
+    
   },
+
   desContainer: {
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 20,
   },
   resultat: {
-    fontSize: 24,
+    fontSize: 40,
     marginBottom: 20,
     fontWeight: "bold",
     color: "purple",
   },
   secondContainer: {
     backgroundColor: "white",
-    borderRadius: 20,
+    borderRadius: 30,
     width: 300,
-    height: 300,
+    height: 450,
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 20,
+
   },
 });
