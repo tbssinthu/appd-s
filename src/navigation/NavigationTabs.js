@@ -1,9 +1,8 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screens/HomeScreen";
-import DiceGame from "../components/DiceGame"
+import GameScreen from "../screens/GameScreen";
 import { Foundation as FoundationIcons } from "react-native-vector-icons";
-
 
 const Tab = createBottomTabNavigator();
 
@@ -25,7 +24,7 @@ const NavigationTabs = () => {
       />
       <Tab.Screen
         name="Jouer"
-        component={DiceGame}
+        component={GameScreen}
         options={{
           tabBarLabe: "Jouer",
           tabBarActiveTintColor: "#333",

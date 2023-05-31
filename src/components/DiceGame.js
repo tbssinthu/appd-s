@@ -1,98 +1,63 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, Text, Button, Image } from 'react-native';
+import React from "react";
+import { View, Image, StyleSheet } from "react-native";
+import dice0 from "../assets/dices/dice-0.png";
+import dice1 from "../assets/dices/dice-1.png";
+import dice2 from "../assets/dices/dice-2.png";
+import dice3 from "../assets/dices/dice-3.png";
+import dice4 from "../assets/dices/dice-4.png";
+import dice5 from "../assets/dices/dice-5.png";
+import dice6 from "../assets/dices/dice-6.png";
 
-export default function DiceGame() {
-  const [dice1Value, setDice1Value] = useState(1);
-  const [dice2Value, setDice2Value] = useState(1);
-  const [resultat, setResultat] = useState(2);
-
-  const lanceDes = () => {
-    const newValue1 = Math.floor(Math.random() * 6) + 1;
-    const newValue2 = Math.floor(Math.random() * 6) + 1;
-    setDice1Value(newValue1);
-    setDice2Value(newValue2);
-    setResultat(newValue1 + newValue2);
-  };
-
-  const resetDes = () => {
-    setDice1Value(1);
-    setDice2Value(1);
-    setResultat(0);
-  };
-
+export default function DiceGame({ des1, des2 }) {
   const renderDiceImage = (value) => {
     switch (value) {
       case 1:
-        return require('../assets/dices/dice-1.png');
+        return dice1;
       case 2:
-        return require('../assets/dices/dice-2.png');
+        return dice2;
       case 3:
-        return require('../assets/dices/dice-3.png');
+        return dice3;
       case 4:
-        return require('../assets/dices/dice-4.png');
+        return dice4;
       case 5:
-        return require('../assets/dices/dice-5.png');
+        return dice5;
       case 6:
-        return require('../assets/dices/dice-6.png');
+        return dice6;
       default:
-        return null;
+        return dice0;
     }
   };
 
+  const valeur1 = renderDiceImage(des1);
+  const valeur2 = renderDiceImage(des2);
   return (
     <View style={styles.container}>
-      <Text style={styles.resultat}>Resultat {resultat}</Text>
-      <View style={styles.secondContainer}>
-        <View style={styles.buttonContainer}>
-          <Button title="Réinitialiser" onPress={resetDes} color="purple" />
-        </View>
-        <View style={styles.desContainer}>
-          <Image style={styles.diceImage} source={renderDiceImage(dice1Value)} />
-          <Image style={styles.diceImage} source={renderDiceImage(dice2Value)} />
-        </View>
-        <View style={styles.buttonContainer}>
-          <Button title="Lancer" onPress={lanceDes} color="purple" />
-        </View>
+      <View style={styles.des}>
+        <Image source={valeur1} style={styles.img} />
+      </View>
+      <View style={styles.des}>
+        <Image source={valeur2} style={styles.img} />
       </View>
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: "pink"
+    flexDirection: "row",
+    gap: 10,
+    alignItems: "center",
+    justifyContent: "center",
   },
-  buttonContainer: {
-    borderRadius: 10,
-    overflow: 'hidden',
-    marginBottom: 10,
+
+  des: {
+    width: 120,
+    height: 120,
+    elevation: 20,
   },
-  desContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  resultat: {
-    fontSize: 24,
-    marginBottom: 20,
-    fontWeight: 'bold',
-    color: 'purple',
-  },
-  secondContainer:{
-    backgroundColor:"white",
-    borderRadius: 20,
-    width: 300,
-    height: 300,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 20,
-  },
-  diceImage: {
-    width: 80,
-    height: 80,
-    marginHorizontal: 10,
+
+  img: {
+    width: "100%",
+    height: "100%", // l'image va etre à la taille de la div si on utilise cette proprieté
   },
 });
