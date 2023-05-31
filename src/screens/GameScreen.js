@@ -1,36 +1,42 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
-import Icon from "react-native-vector-icons/FontAwesome";
+import { Foundation } from "react-native-vector-icons";
 
 export default function GameScreen() {
   const [des1, setDes1] = useState(1);
   const [des2, setDes2] = useState(1);
-  const [total, setTotal] = useState(2);
+  const [resultat, setResultat] = useState(2);
 
   const lanceDes = () => {
     const newValue1 = Math.floor(Math.random() * 6) + 1;
     const newValue2 = Math.floor(Math.random() * 6) + 1;
     setDes1(newValue1);
     setDes2(newValue2);
-    setTotal(newValue1 + newValue2);
+    setResultat(newValue1 + newValue2);
   };
 
   const resetDes = () => {
     setDes1(1);
     setDes2(1);
-    setTotal(0);
+    setResultat(0);
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Jeu de dés</Text> 
-      <Text style={styles.total}>Total: {total}</Text>
-      <View style={styles.desContainer}>
-  <Icon name={`des-${des1}`} size={80} color="black" />
-  <Icon name={`des-${des2}`} size={80} color="black" />
+      <Text style={styles.resultat}>Resultat {resultat}</Text>
+      <View style={styles.secondContainer}>
+        <View style={styles.buttonContainer}>
+          <Button title="Réinitialiser" onPress={resetDes} color="purple" />
+        </View>
+        <View style={styles.desContainer}>
+          <Foundation name="die-one" size={80} color="black" />
+          <Foundation name="die-two" size={80} color="black" />
+        </View>
+        <View style={styles.buttonContainer}>
+          <Button title="Lancer" onPress={lanceDes} color="purple" />
+        </View>
       </View>
-      <Button title="Lancer" onPress={lanceDes} />
-      <Button title="Réinitiliser" onPress={resetDes} />
+      <DiceGame />
     </View>
   );
 }
@@ -40,22 +46,32 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: "pink"
   },
-  title: {
-    fontSize: 24,
-    marginBottom: 30,
+  buttonContainer: {
+    borderRadius: 10,
+    overflow: 'hidden',
+    marginBottom: 10,
   },
   desContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 20,
   },
-  desValue: {
-    fontSize: 80,
-    marginHorizontal: 20,
-  },
-  total: {
+  resultat: {
     fontSize: 24,
     marginBottom: 20,
+    fontWeight: 'bold',
+    color: 'purple',
   },
+  secondContainer:{
+   backgroundColor:"white",
+   borderRadius: 20,
+   width: 300,
+   height: 300,
+   alignItems: 'center',
+   justifyContent: 'center',
+    marginBottom: 20,
+  }
 });
+
