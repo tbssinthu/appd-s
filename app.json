@@ -1,13 +1,14 @@
 {
   "expo": {
-    "name": "appDes",
+    "name": "applicationDes",
     "slug": "appDes",
+    "description": "première application",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/assets/icon.png",
+    "icon": "./src/assets/logo/logo-512x512.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./src/assets/splash.png",
+      "image": "./src/assets/logo/logo-512x512.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -15,16 +16,23 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.tbssin.appDes"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./src/assets/adaptive-icon.png",
+        "foregroundImage": "./src/assets/logo/logo-1000x1000.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.tbssin.appDes"
     },
     "web": {
-      "favicon": "./src/assets/favicon.png"
+      "favicon": "./src/assets/logo/logo-512x512.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "5e4d7989-1833-4c1e-95a6-729a2395ae6a"
+      }
     }
   }
 }
